@@ -1,0 +1,61 @@
+#body {
+    color: #ffffff;
+    height: 100 vh;
+    position: relative;
+}
+
+#scoreboard {
+    
+    text-align: center;
+    text-decoration: solid;
+    background-color: rgb(239, 11, 11);
+}
+
+#boardgame {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: rgb(0, 0, 0); 
+    background-repeat: no-repeat;
+    height: 130vh;
+    background-size: contain;
+    background-position: center;
+    min-width: 2000px;
+    top: 10;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-image: url(/images/background\ city-destroy-war-zone-abandoned-buildings-with-smoke-destruction-natural-disaster-cataclysm-consequences-post-apocalyptic-world-ruins-with-broken-road-street-cartoon-illustration_107791-3544.avif);
+}
+
+
+#tank {
+    /* background-color: tomato; */
+    position: relative;
+    transform: scaleX(-1);
+}
+
+
+.bullet {
+    width: 20px;
+    height: 5px;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+}
+
+#obstacle{
+    background-color: rgb(21, 217, 235);
+    position: absolute;
+}
+
+.explosion {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+}
+
+#page-gameover {
+    text-align: center;
+    background-color: rgb(166, 161, 171);
+}
