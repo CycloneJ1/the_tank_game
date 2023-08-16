@@ -59,6 +59,10 @@ class Game {
                 this.tank.moveRight();
             } else if (event.key === " ") {
                 this.tank.shoot();
+            } else if (event.key === "ArrowUp" && this.tank.position > 0) {
+                this.tank.moveUp();
+            } else if (event.key === "ArrowDown" && this.tank.position > 100) {
+                this.tank.moveDown();
             }
         });
     }
@@ -97,6 +101,16 @@ class Tank {
     moveRight() {
         this.positionX++; {
             this.domElement.style.left = this.positionX + "vw";
+        }
+    }
+    moveUp() {
+        this.positionY--; {
+            this.domElement.style.left = this.positionY + "vh";
+        }
+    }
+    moveDown() {
+        this.positionY++; {
+            this.domElement.style.left = this.positionY + "vh";
         }
     }
 
@@ -140,7 +154,7 @@ class Shells{
     }
 }
 
-// new Bullet
+  
 // store the bullet in array
 // GAME method
 
