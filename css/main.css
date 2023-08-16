@@ -34,7 +34,7 @@
     /* background-color: tomato; */
     position: relative;
     transform: scaleX(-1);
-    /* background-image:url("../images/Tank_moving.webp"); */
+    background-image:url("../images/Tank_moving.webp");
 }
 
 
@@ -51,6 +51,7 @@
 #obstacle{
     background-color: rgb(21, 217, 235);
     position: absolute;
+
 }
 
 .explosion {
