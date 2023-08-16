@@ -16,7 +16,7 @@
     height: 90vh;
     position: relative;
     overflow: hidden;
-    background: rgb(0, 0, 0); 
+    background: rgba(13, 92, 177, 0.301); 
     background-repeat: no-repeat;
     height: 100vh;
     background-size: contain;
@@ -26,7 +26,7 @@
     bottom: 0;
     right: 0;
     left: 0;
-    background-image: url("./images/backgroundcity-destroy-war.avif");
+    background-image: url("../images/backgroundcity-destroy-war.avif");
 }
 
 
@@ -34,7 +34,7 @@
     /* background-color: tomato; */
     position: relative;
     transform: scaleX(-1);
-    background-image:url("./images/Tank_moving.webp");
+    background-image:url("../images/Tank_moving.webp");
 }
 
 
