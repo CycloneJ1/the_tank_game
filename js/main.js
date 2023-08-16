@@ -69,6 +69,7 @@ class Tank {
         this.domElement.style.top = this.positionY + 86 + "vh";
 
         const parentElm = document.getElementById("boardgame");
+        this.domElement.setAttribute("src", "images/backgroundcity-destroy-war.avif")
         parentElm.appendChild(this.domElement);
     }
     moveLeft() {
