@@ -1,12 +1,13 @@
 #body {
-    color: #ffffff;
+    /* color: #ffffff;
     height: 100 vh;
-    position: relative;
-}
-
-#score {
-    text-align: center;
-    text-decoration: solid;
+    position: relative; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f2f2f2;
 }
 
 #boardgame {
@@ -38,12 +39,19 @@
 .bullet {
     /* width: 10px;
     height: 3px; */
-    background-color: rgb(243, 5, 5);
+    background-color: rgb(231, 5, 243);
     position: absolute;
     border-color: rgb(36, 2, 253);
     border-style: ridge;
-    background-image: null;
+    /* background-image: null; */
 }
+/* 
+#Shells {
+    background-color: rgb(231, 5, 243);
+    position: relative;
+    border-color: rgb(36, 2, 253);
+    border-style: ridge;
+} */
 
 .obstacle{
     background-color: rgb(21, 217, 235);
@@ -58,7 +66,31 @@
     position: absolute;
 }
 
-#page-gameover {
+#GAME-OVER {
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-image: 100%;
     text-align: center;
-    background-color: rgb(166, 161, 171);
+    background-color: rgb(185, 182, 187);
+}
+
+.image-container{
+    width:300px;
+    height:auto;
+}
+
+#score {
+    text-align: center;
+    text-decoration: solid;
+}
+
+
+#button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
 }

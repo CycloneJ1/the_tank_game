@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Over</title>
+
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <div id="GAME-OVER">
+        <h1>Game Over</h1>
+        <img src="./images/backgroundDistruction.avif">
+        <p>Your score: <span id="score">0</span></p>
+        <button id="play-again-button">Play Again</button>
+    </div>
+
+    <script>
+        const playAgainButton = document.getElementById('play-again-button');
+
+        // Add a click event listener to the "Play Again" button
+        playAgainButton.addEventListener('click', () => {
+            // Redirect to your game's main page or restart the game logic here
+            window.location.href = 'index.html';
+        });
+
+        // Set the score value here, you can fetch it from localStorage or other sources
+        const scoreSpan = document.getElementById('score');
+        const scoreValue = 500; // Replace with your actual score value
+        scoreSpan.textContent = scoreValue;
+    </script>
+</body>
+</html>

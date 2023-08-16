@@ -8,11 +8,11 @@ class Game {
     }
 
 
-    // increaseScore() {
-    //     this.score += 10; // Increase the score by 10 for each obstacle removed
-    //     const scoreElement = document.getElementById('score');
-    //     scoreElement.textContent = this.score; // Update the scoreboard text
-    // }
+    increaseScore() {
+        this.score += 10; // Increase the score by 10 for each obstacle removed
+        const scoreElement = document.getElementById('score');
+        scoreElement.textContent = this.score; // Update the scoreboard text
+    }
 
     start() {
         // attach event listeners
@@ -35,8 +35,6 @@ class Game {
         }, 200);
     }
 
-
-
     collisionPlayerObstacle(obstacleInstance){
         if (
             this.tank.positionX < obstacleInstance.positionX + obstacleInstance.width &&
@@ -45,9 +43,9 @@ class Game {
             this.tank.positionY + this.tank.height > obstacleInstance.positionY
         ) {
             // Collision detected!
-            console.log('hitted tank', obstacleInstance)
-            console.log("game over my fren! ");
-            // location.href = "./gameover.html";
+            console.log('You hit a tank', obstacleInstance)
+            console.log("game over BUDDY ");
+            location.href = "./gameover.html";
         }
 
         // collision bullet-tobst () --> you want to check for each bullet
@@ -103,7 +101,6 @@ class Tank {
     }
 
 
-
     shoot() {
         const bullet = document.createElement("div");
         bullet.className = "bullet";
@@ -137,10 +134,9 @@ class Tank {
 class Shells{
     constructor(shoot){
     this.width = 50;
-    this.height = 20;
+    this.height = 200;
     this.position = 50;
-
-
+    this.size = 100;
     }
 }
 
