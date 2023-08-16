@@ -34,15 +34,18 @@
     /* background-color: tomato; */
     position: relative;
     transform: scaleX(-1);
-    background-image:url(../images/Tank_moving.webp);
+    /* background-image:url("../images/Tank_moving.webp"); */
 }
 
 
 .bullet {
-    width: 20px;
-    height: 10px;
-    background-color: rgb(255, 205, 24);
+    width: 10px;
+    height: 3px;
+    background-color: rgb(243, 5, 5);
     position: absolute;
+    border-color: rgb(36, 2, 253);
+    border-style: ridge;
+    background-image: null;
 }
 
 #obstacle{

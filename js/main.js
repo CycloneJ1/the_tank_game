@@ -74,7 +74,7 @@ class Tank {
         this.width = 5;
         this.height = 5;
         this.positionX = 0;
-        this.positionY = 3 ;
+        this.positionY = -15 ;
         this.domElement = null;
 
         this.createDomElement();
@@ -82,7 +82,7 @@ class Tank {
 
     createDomElement() {
         this.domElement = document.createElement("img");
-        this.domElement.setAttribute("src", "images/tank_moving.webp")
+        this.domElement.setAttribute("src", "images/Tank_moving.webp")
         
         //id
         this.domElement.id = "tank";
@@ -112,7 +112,7 @@ class Tank {
     
         // Set the initial position of the bullet
         bullet.style.left = this.positionX + this.width + "vw";
-        bullet.style.bottom = 37 + "vh";
+        bullet.style.bottom = 24.5 + "vh";
     
         // Append the bullet to the DOM
         const board = document.getElementById("boardgame");
@@ -140,9 +140,9 @@ class Tank {
 
             // Set the position of the explosion
           const explosionLeft = parseFloat(obstacle.style.left);
-          const explosionTop = parseFloat(obstacle.style.bottom);
+          const explosionRight = parseFloat(obstacle.style.bottom);
           explosion.style.left = explosionLeft + "vw";
-          explosion.style.bottom = explosionTop + "vh";
+          explosion.style.bottom = explosionRight + "vh";
 
           // Append the explosion to the DOM
           board.appendChild(explosion);
@@ -170,8 +170,8 @@ class Obstacle {
     constructor() {
         this.width = 5;
         this.height = 5;
-        this.positionX = window.innerWidth + this.width - 100; // Initial position on the right side
-        this.positionY = 91; // Adjust as needed
+        this.positionX = window.innerWidth + this.width + 100; // Initial position on the right side
+        this.positionY = 73; // Adjust as needed
         this.domElement = null;
 
         this.createDomElement();
@@ -181,7 +181,7 @@ class Obstacle {
 
     createDomElement() {
         this.domElement = document.createElement("img");
-        this.domElement.setAttribute("src", "images/tank_moving.webp");
+        this.domElement.setAttribute("src", "images/Tank_moving.webp");
 
         this.domElement.classname = "obstacle";
         this.domElement.style.width = this.width + "vw";
@@ -195,7 +195,7 @@ class Obstacle {
     }
 
     moveLeftRandomly() {
-        const randomSpeed = Math.random() * 2 + 1; // Adjust speed range as needed
+        const randomSpeed = Math.random() * 3 + 0.3; // Adjust speed range as needed
         this.positionX -= randomSpeed;
         this.domElement.style.left = this.positionX + "px"; // Use pixels for positioning
         // this.checkCollision();
@@ -206,8 +206,8 @@ class Obstacle {
         }, 11); // Adjust the delay as needed
     }
     moveDown() {
-        this.positionx += 2;
-        this.domElement.style.right = this.positionx + "vh";
+        this.positionx += 1;
+        this.domElement.style.right = this.positionx + "vw";
     }
 
 }
