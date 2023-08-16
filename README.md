@@ -1,11 +1,12 @@
-#THE TANK GAME
+# THE TANK GAME
 
 ## Survive the tank attack
 
-This survival game has the potential to be the best.
+### This survival game has the potential to be the best.
 
 controls which can be used:
-    left - move left
-    right - move right
-    space - shoot
+    <= - move left 
+    space = shoot
+    => - move right
+    
     angle adjustment - (still producing)

@@ -1,7 +1,4 @@
 #body {
-    /* color: #ffffff;
-    height: 100 vh;
-    position: relative; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,10 +9,10 @@
 
 #boardgame {
     width: 100vw;
-    height: 90vh;
+    height: 100vh;
     position: relative;
     overflow: hidden;
-    background: rgba(13, 92, 177, 0.301); 
+    background: rgba(235, 41, 11, 0.301); 
     background-repeat: no-repeat;
     height: 100vh;
     background-size: contain;
@@ -24,10 +21,7 @@
     bottom: 0;
     right: 0;
     left: 0;
-    background-image: url("../images/backgroundcity-destroy-war.avif");
-
 }
-
 
 #tank {
     /* background-color: tomato; */
@@ -37,21 +31,21 @@
 
 
 .bullet {
-    /* width: 10px;
-    height: 3px; */
+    width: 10px;
+    height: 3px;
     background-color: rgb(231, 5, 243);
     position: absolute;
     border-color: rgb(36, 2, 253);
     border-style: ridge;
     /* background-image: null; */
 }
-/* 
-#Shells {
+
+.projectile {
     background-color: rgb(231, 5, 243);
     position: relative;
     border-color: rgb(36, 2, 253);
     border-style: ridge;
-} */
+}
 
 .obstacle{
     background-color: rgb(21, 217, 235);
@@ -59,20 +53,24 @@
 
 }
 
-.explosion {
+/* .explosion {
     background-image: url("./images/superbullet.svg");
     width: 40px;
     height: 40px;
     position: absolute;
-}
+} */
 
 #GAME-OVER {
     width: 100vw;
     height: 100vh;
     background-repeat: no-repeat;
-    background-image: 100%;
+    background-image: 0  px;
     text-align: center;
-    background-color: rgb(185, 182, 187);
+    background-color: rgb(95, 93, 96);
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
 }
 
 .image-container{

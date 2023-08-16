@@ -3,26 +3,20 @@ class Game {
         this.tank = new Tank();
         // this.enemyTank = new EnemyTank();
         this.obstaclesArr = [];
-        this.shell = new Shells();
-
+        this.projectileHit = [];
+        this.bulletCollision = [];
     }
 
-
-    increaseScore() {
-        this.score += 10; // Increase the score by 10 for each obstacle removed
-        const scoreElement = document.getElementById('score');
-        scoreElement.textContent = this.score; // Update the scoreboard text
-    }
 
     start() {
         // attach event listeners
-        this.attachEventListeners();   
+        this.attachEventListeners();
 
         // create obstacles
         setInterval(() => {
             const newObstacle = new Obstacle();
             this.obstaclesArr.push(newObstacle);
-        }, 10000);
+        }, 3000);
 
         // moveLeft obstacles
         setInterval(() => {
@@ -30,12 +24,13 @@ class Game {
                 obstacleInstance.moveLeftRandomly(); // move
                 // this.removeObstacleIfOutside(obstacleInstance); // remove if outside
                 this.collisionPlayerObstacle(obstacleInstance); // detect collision
-                // call bullet collision
+                // call bullet collision 
+                // this.projectileHit(obstacleInstance);
             });
         }, 200);
     }
 
-    collisionPlayerObstacle(obstacleInstance){
+    collisionPlayerObstacle(obstacleInstance) {
         if (
             this.tank.positionX < obstacleInstance.positionX + obstacleInstance.width &&
             this.tank.positionX + this.tank.width > obstacleInstance.positionX &&
@@ -51,6 +46,23 @@ class Game {
         // collision bullet-tobst () --> you want to check for each bullet
     }
 
+    collisionPlayerObstacle(obstacleInstance) {
+        if (
+            this.tank.positionX < obstacleInstance.positionX + obstacleInstance.width &&
+            this.tank.positionX + this.tank.width > obstacleInstance.positionX &&
+            this.tank.positionY < obstacleInstance.positionY + obstacleInstance.height &&
+            this.tank.positionY + this.tank.height > obstacleInstance.positionY
+        ) {
+            // Collision detected!
+            console.log('You hit a tank', obstacleInstance)
+            console.log("game over BUDDY ");
+            location.href = "./gameover.html";
+        }
+
+        // collision bullet-tobst () --> you want to check for each bullet
+    }
+
+
     attachEventListeners() {
         document.addEventListener("keydown", (event) => {
             if (event.key === "ArrowLeft" && this.tank.positionX > 0) {
@@ -59,11 +71,12 @@ class Game {
                 this.tank.moveRight();
             } else if (event.key === " ") {
                 this.tank.shoot();
-            } else if (event.key === "ArrowUp" && this.tank.position > 0) {
-                this.tank.moveUp();
-            } else if (event.key === "ArrowDown" && this.tank.position > 100) {
-                this.tank.moveDown();
             }
+            // } else if (event.key === "ArrowUp" && this.tank.positionY > 0) {
+            //     this.tank.moveUp();
+            // } else if (event.key === "ArrowDown" && this.tank.positionY > 100) {
+            //     this.tank.moveDown();
+            // }
         });
     }
 }
@@ -132,7 +145,7 @@ class Tank {
         const bulletInterval = setInterval(() => {
             const bulletLeft = parseFloat(bullet.style.left);
             bullet.style.left = bulletLeft + 1 + "vw";
- 
+
             // Check if the bullet is out of the screen
             if (bulletLeft >= 110) {
                 clearInterval(bulletInterval);
@@ -145,22 +158,48 @@ class Tank {
 
 }
 
-class Shells{
-    constructor(shoot){
-    this.width = 50;
-    this.height = 200;
-    this.position = 50;
-    this.size = 100;
+class projectile {
+    constructor(bullet) {
+        this.width = 50;
+        this.height = 200;
+        this.position = 50;
+        this.size = 100;
     }
+    createDomElement() { // Use pixels for positioning
+        this.domElement = document.createElement("img");
+        this.domElement.setAttribute;
+
+        this.domElement.classname = "projectile";
+        this.domElement.style.width = this.width + "vw";
+        this.domElement.style.height = this.height + "vh";
+        this.domElement.style.position = "projectile";
+        this.domElement.style.left = this.positionX + "vw";
+        this.domElement.style.top = this.positionY + "vh";
+
+        const parentElm = document.getElementById("boardgame");
+        parentElm.appendChild(this.domElement);
+    }
+
+    moveLeftRandomly() {
+        const randomSpeed = Math.random() * 3 + 1; // Adjust speed range as needed
+        this.positionX -= 0.5  //randomSpeed;
+        this.domElement.style.left = this.positionX + "vw"; // Use pixels for positioning
+        // this.checkCollision();
+    }
+    moveDown() {
+        this.positionX += 700;
+        this.domElement.style.right = this.positionX + "vw";
+    }
+
 }
 
-  
-// store the bullet in array
+
+// store the shells in array
 // GAME method
 
-//2- interval to check bullets
+//2- interval to check shells
 
-// collision bullet-obst (game method)
+// collision projectiles-obst (game method)
 
 
 class Obstacle {
@@ -176,7 +215,7 @@ class Obstacle {
     }
 
 
-    createDomElement() {
+    createDomElement() {// Use pixels for positioning
         this.domElement = document.createElement("img");
         this.domElement.setAttribute("src", "images/Tank_moving.webp");
 
@@ -184,7 +223,7 @@ class Obstacle {
         this.domElement.style.width = this.width + "vw";
         this.domElement.style.height = this.height + "vh";
         this.domElement.style.position = "absolute";
-        this.domElement.style.left = this.positionX + "vw"; // Use pixels for positioning
+        this.domElement.style.left = this.positionX + "vw";
         this.domElement.style.top = this.positionY + "vh";
 
         const parentElm = document.getElementById("boardgame");
@@ -192,13 +231,13 @@ class Obstacle {
     }
 
     moveLeftRandomly() {
-        const randomSpeed = Math.random() * 3    + 1; // Adjust speed range as needed
+        const randomSpeed = Math.random() * 4 + 1; // Adjust speed range as needed
         this.positionX -= 1  //randomSpeed;
         this.domElement.style.left = this.positionX + "vw"; // Use pixels for positioning
         // this.checkCollision();
     }
     moveDown() {
-        this.positionx += 500;
+        this.positionx += 200;
         this.domElement.style.right = this.positionx + "vw";
     }
 
