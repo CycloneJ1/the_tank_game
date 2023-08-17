@@ -9,26 +9,26 @@
 </head>
 <body>
     <div id="GAME-OVER">
-        <h2>YOU HAVE DIED</h2>
         <h1>Game Over</h1>
+
+        <h2>YOU HAVE DIED</h2>
+
+        <button id="play-again-button">Play Again ?</button>
+
+        <h2>IF YOU DARE</h2>
+
         <img src="./images/background_bob.avif" width="1200" height="700">>
         <p>Your score: <span id="score">0</span></p>
-        <button id="play-again-button">Play Again</button>
+      
     </div>
 
     <script>
         const playAgainButton = document.getElementById('play-again-button');
-
         // Add a click event listener to the "Play Again" button
         playAgainButton.addEventListener('click', () => {
             // Redirect to your game's main page or restart the game logic here
             window.location.href = 'index.html';
         });
-
-        // Set the score value here, you can fetch it from localStorage or other sources
-        const scoreSpan = document.getElementById('score');
-        const scoreValue = 0; // Replace with your actual score value
-        scoreSpan.textContent = scoreValue;
     </script>
 </body>
 </html>

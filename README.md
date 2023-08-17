@@ -4,6 +4,8 @@
 
 ### This survival game has the potential to be the best.
 
+Note: Play in fullscreen
+
 controls which can be used:
 
     - move left (Left Arrow)

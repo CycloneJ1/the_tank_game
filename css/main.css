@@ -1,25 +1,23 @@
-#body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body{
+    overflow: hidden;
+    background-color: #f2f2f2;
+    position: relative;
     height: 100vh;
     margin: 0;
-    background-color: #f2f2f2;
 }
 
 #boardgame {
+    background-image: url("../images/volcano-eruption.avif");
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: center center;
+    background-repeat: no-repeat;
     width: 100vw;
     height: 100vh;
-    position: relative;
+    position: absolute;
     overflow: hidden;
-    background: rgba(235, 41, 11, 0.301); 
-    background-repeat: no-repeat;
-    height: 100vh;
-    background-size: contain;
-    background-position: center;
+    background-color: rgba(235, 41, 11, 0.301); 
     top: 0;
-    bottom: 0;
-    right: 0;
     left: 0;
 }
 
@@ -40,18 +38,17 @@
     /* background-image: null; */
 }
 
-.projectile {
+/* .projectile {
     background-color: rgb(231, 5, 243);
-    position: relative;
     border-color: rgb(36, 2, 253);
     border-style: ridge;
-}
+} */
 
-.obstacle{
+/* .obstacle{
     background-color: rgb(21, 217, 235);
     position: absolute;
 
-}
+} */
 
 /* .explosion {
     background-image: url("./images/superbullet.svg");
@@ -63,6 +60,7 @@
 #GAME-OVER {
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
     background-repeat: no-repeat;
     background-image: 0  px;
     text-align: center;
@@ -78,10 +76,14 @@
     height:auto;
 }
 
-#score {
-    text-align: center;
-    text-decoration: solid;
+#scoreboard {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: white;
 }
+
 
 
 #button {
