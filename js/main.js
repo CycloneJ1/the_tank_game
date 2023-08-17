@@ -6,18 +6,19 @@ class Game {
         this.bulletCollision = [];
         this.score = 0; // Initialize the score
         this.scoreElement = document.getElementById("score"); // Get the score element
-    
     }
-
+    
     start() {
 
         this.attachEventListeners();
+
+        
 
         // create obstacles
         setInterval(() => {
             const newObstacle = new Obstacle();
             this.obstaclesArr.push(newObstacle);
-        }, 3000);
+        }, 1000);
 
         // moveLeft obstacles
         setInterval(() => {
@@ -27,7 +28,7 @@ class Game {
                 this.collisionPlayerObstacle(obstacleInstance); // detect collision
                 // this.collisionProjectile(projectileInstance)
             });
-        }, 200);
+        }, 500);
 
         setInterval(()=> {
             this.projectilesArr.forEach((projectileInstance)=>{
@@ -85,12 +86,13 @@ class Game {
             this.projectilesArr = this.projectilesArr.filter(projectile => !projectilesToRemove.includes(projectile));
         }
         
-        
-    
 
     shoot() {
         const banana = new Projectile(this.tank.positionX, this.tank.positionY)
-        this.projectilesArr.push(banana)
+        this.projectilesArr.push(banana);
+        const shootingSound = document.getElementById("shootingSound");
+        shootingSound.currentTime = 0; // Reset to start in case it's still playing
+        shootingSound.play();
         
     }
 
@@ -120,10 +122,10 @@ class Game {
 
 class Tank {
     constructor() {
-        this.width = 5;
-        this.height = 5;
-        this.positionX = 0;
-        this.positionY = 70;
+        this.width = 8;
+        this.height = 8;
+        this.positionX = 10;
+        this.positionY = 60;
         this.domElement = null;
 
         this.createDomElement();
@@ -170,10 +172,10 @@ class Tank {
 
 class Projectile {
     constructor(playerX, playerY) {
-        this.width = 2;
+        this.width = 1;
         this.height = 2;
-        this.positionX = playerX;
-        this.positionY = playerY;
+        this.positionX = playerX + 7;
+        this.positionY = playerY + 2.2;
         this.domElement = null
         this.createDomElement()
         
@@ -197,12 +199,12 @@ class Projectile {
 
     moveLeftRandomly() {
         const randomSpeed = Math.random() * 3 + 1; // Adjust speed range as needed
-        this.positionX -= 0.5  //randomSpeed;
+        this.positionX += 1  //randomSpeed;
         this.domElement.style.left = this.positionX + "vw"; // Use pixels for positioning
         // this.checkCollision();
     }
     moveSide() {
-    const acceleration = 0.1; // Adjust the acceleration rate as needed
+    const acceleration = 1; // Adjust the acceleration rate as needed
     this.positionX += acceleration;
     this.domElement.style.left = this.positionX + "vw";
     // Remove projectile if it's off the screen
@@ -248,7 +250,7 @@ class Obstacle {
     }
 
     moveLeftRandomly() {
-        const randomSpeed = Math.random() * 5 + 1;
+        const randomSpeed = Math.random() * 0 + 3.5;
         this.positionX -= randomSpeed;
         this.threshold = -5; // Adjust this value based on your game design
         this.domElement.style.left = this.positionX + "vw";
@@ -262,15 +264,10 @@ class Obstacle {
     }
     
     moveDown() {
-        this.positionX += 10;
-        this.domElement.style.right = this.positionX + "vw";
+        this.positionX += 1000;
+        this.domElement.style.left = this.positionX + "vw";
     }
 
 }
-
-
 const game = new Game()
 game.start();
-
-
-
