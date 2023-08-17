@@ -46,7 +46,7 @@ class Game {
         // collision bullet-tobst () --> you want to check for each bullet
     }
 
-    collisionPlayerObstacle(obstacleInstance) {
+    collisionProjectile(obstacleInstance) {
         if (
             this.tank.positionX < obstacleInstance.positionX + obstacleInstance.width &&
             this.tank.positionX + this.tank.width > obstacleInstance.positionX &&
@@ -54,7 +54,7 @@ class Game {
             this.tank.positionY + this.tank.height > obstacleInstance.positionY
         ) {
             // Collision detected!
-            console.log('You hit a tank', obstacleInstance)
+            console.log('tank has been hit', obstacleInstance)
             console.log("game over BUDDY ");
             location.href = "./gameover.html";
         }
@@ -242,6 +242,7 @@ class Obstacle {
     }
 
 }
+
 
 const game = new Game()
 game.start();
